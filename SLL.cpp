@@ -81,7 +81,36 @@ void SLL::insertAtTail(int value)
 
 void SLL::insertAtIndex(int value, int index)
 {
-    // Stub
+    int count(0);
+    node* temporary;
+    transient = head;
+    
+    if (index < 1)
+    {
+        insertAtHead(value);
+        return;
+    }
+
+    while (transient -> next && count < (index-1))
+    {
+        transient = transient -> next;
+        count++;
+    }
+
+    if (transient)
+    {
+        temporary = new node;
+        temporary -> data = value;
+        temporary -> next = transient -> next;
+        transient -> next = temporary;
+        return;
+    }
+
+    temporary = new node;
+    temporary -> data = value;
+    temporary -> next = NULL;
+    transient -> next = temporary;
+    return;
 }
 
 void SLL::insertBeforeData(int value, int data)

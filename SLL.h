@@ -27,7 +27,7 @@ class SLL
         // Insertion Functions:
         void insertAtHead(int value);                  // Inserts node at head of linked list.
         void insertAtTail(int value);                  // Inserts node at tail of linked list.
-        void insertAtIndex(int value, int index);      // Inserts node at specified location in linked list. If no such index exists, adds no new node.
+        void insertAtIndex(int value, int index);      // Inserts node at specified location in linked list. If no such index exists, adds to tail. If index is zero or lesser, adds to head.
         void insertBeforeData(int value, int data);    // Inserts node before first node of specified value in linked list. If no such value exists, adds no new node.
         void insertAfterData(int value, int data);     // Inserts node after first node of specified value in linked list. If no such value exists, adds no new node.
 
