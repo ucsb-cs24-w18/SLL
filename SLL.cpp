@@ -15,24 +15,16 @@ SLL::SLL()
    transient = NULL;
 }
 
-// Node Destructor:
-/*
-node::~node()
-{
-    if (next)
-    {
-        delete next;
-    }
-}
-*/
-
 // SLL Destructor:
 SLL::~SLL()
 {
-    if (head)
-    {
-        delete head;
-    }
+    delete head;
+}
+
+// Node Destructor:
+node::~node()
+{
+    delete next;
 }
 
 // Copy Constructor:
@@ -176,7 +168,7 @@ void SLL::insertAfterData(int value, int data)
 // Deletion Functions:
 void SLL::deleteAtHead()
 {
-
+    
 }
 
 void SLL::deleteAtTail()

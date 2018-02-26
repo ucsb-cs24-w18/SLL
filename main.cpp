@@ -5,7 +5,7 @@ using namespace std;
 
 int main()
 {
-    SLL SLL1, SLL2, SLL3, SLL4, SLL5, SLL6, SLL7, SLL8;
+    SLL SLL1, SLL2, SLL3, SLL4, SLL5, SLL6, SLL7, SLL8, SLL9;
 
     for (int i = 0; i < 6; i++)
     {
@@ -46,6 +46,13 @@ int main()
 
     SLL8.insertAfterData(1000, 3);
 
+    for (int i = 0; i < 6; i++)
+    {
+        SLL9.insertAtHead(i);
+    }
+    delete SLL9.head;
+    SLL9.head = NULL;
+
     cout << "insertAtHead Test:" << endl;
     SLL1.printSLL();
     cout << endl << "insertAtTail Test:" << endl;
@@ -62,6 +69,8 @@ int main()
     SLL7.printSLL();
     cout << endl << "insertAfterData Empty List Test:" << endl;
     SLL8.printSLL();
+    cout << endl << "Destructor Test:" << endl;
+    SLL9.printSLL();
 
     return 0;
 }

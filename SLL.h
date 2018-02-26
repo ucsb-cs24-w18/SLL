@@ -9,6 +9,15 @@
 
 using namespace std;
 
+// Node definition:
+struct node
+{
+    int data;
+    node* next;
+
+    ~node();
+};
+
 class SLL
 {
     public:
@@ -45,17 +54,11 @@ class SLL
         void printSLL();        // Prints contents of linked list.
         bool isPalindrome();    // Returns true if data elements of successive linked list nodes are equal when read from head or tail.
 
+        node* head;
+
     private:
     
-        // Definition of node:
-        struct node          
-        {
-            int data;      
-            node* next;    
-        };
-
         // General pointers:
-        node* head;
         node* transient;
 };
 #endif
