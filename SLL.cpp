@@ -60,7 +60,7 @@ void SLL::insertAtHead(int value)
 
 void SLL::insertAtTail(int value)
 {
-    if (!head)
+    if (!head) // For an empty list.
     {
         insertAtHead(value);
         return;
@@ -85,19 +85,25 @@ void SLL::insertAtIndex(int value, int index)
     node* temporary;
     transient = head;
     
-    if (index < 1)
+    if (!head) // For an empty list.
     {
         insertAtHead(value);
         return;
     }
 
-    while (transient -> next && count < (index-1))
+    if (index < 1) // For indices zero or lesser.
+    {
+        insertAtHead(value);
+        return;
+    }
+
+    while (transient -> next && count < (index-1))  // Iterates to specified position.
     {
         transient = transient -> next;
         count++;
     }
 
-    if (transient)
+    if (transient)  // If another node follows the one being created.
     {
         temporary = new node;
         temporary -> data = value;
@@ -106,7 +112,7 @@ void SLL::insertAtIndex(int value, int index)
         return;
     }
 
-    temporary = new node;
+    temporary = new node;   // If no node follows the one being created.
     temporary -> data = value;
     temporary -> next = NULL;
     transient -> next = temporary;
@@ -115,7 +121,10 @@ void SLL::insertAtIndex(int value, int index)
 
 void SLL::insertBeforeData(int value, int data)
 {
-    // Stub
+    node* temporary;
+    transient = head;
+
+
 }
 
 void SLL::insertAfterData(int value, int data)
