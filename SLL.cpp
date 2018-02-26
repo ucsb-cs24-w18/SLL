@@ -85,7 +85,7 @@ void SLL::insertAtIndex(int value, int index)
     node* temporary;
     transient = head;
     
-    if (!head) // For an empty list.
+    if (!head) // If an empty list.
     {
         insertAtHead(value);
         return;
@@ -123,13 +123,54 @@ void SLL::insertBeforeData(int value, int data)
 {
     node* temporary;
     transient = head;
+    
+    if (!head) // If an empty list.
+    {
+        return;
+    }
 
+    while (transient -> next && transient -> next -> data != data) // Iterates until finding specified data or list is complete.
+    {
+        transient = transient -> next;
+    }
 
+    if (!transient -> next) // If no node data matches specified value.
+    {
+        return;
+    }
+
+    temporary = new node;
+    temporary -> data = value;
+    temporary -> next = transient -> next;
+    transient -> next = temporary;
+    return;
 }
 
 void SLL::insertAfterData(int value, int data)
 {
-    // Stub
+    node* temporary;
+    transient = head;
+
+    if (!head)  // If an empty list.
+    {
+        return;
+    }
+
+    while (transient && transient -> data != data) // Iterates until finding specified data or list is complete.
+    {
+        transient = transient -> next;
+    }
+
+    if (!transient) // If no node data matches specified value.
+    {
+        return;
+    }
+
+    temporary = new node;
+    temporary -> data = value;
+    temporary -> next = transient -> next;
+    transient -> next = temporary;
+    return;
 }
 
 // Deletion Functions:
